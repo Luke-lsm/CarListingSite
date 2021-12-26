@@ -1,15 +1,15 @@
 package org.meir.jdbc.template;
 
-import org.meir.dao.CarListingDAO;
-import org.meir.jdbc.mapper.CarListingMapper;
-import org.meir.model.CarListing;
+import org.meir.dao.ListingDAO;
+import org.meir.jdbc.mapper.ListingMapper;
+import org.meir.model.Listing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 import java.util.List;
 
-public class CarListingJDBCTemplate implements CarListingDAO {
+public class ListingJDBCTemplate implements ListingDAO {
 
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
@@ -20,9 +20,9 @@ public class CarListingJDBCTemplate implements CarListingDAO {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    public List<CarListing> select(){
+    public List<Listing> select(){
         String SQL = "select * from car_listing_dao";
-        List<CarListing>  listings = jdbcTemplate.query(SQL, new CarListingMapper());
+        List<Listing>  listings = jdbcTemplate.query(SQL, new ListingMapper());
         return listings;
     }
 }

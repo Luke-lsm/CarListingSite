@@ -1,6 +1,6 @@
 package org.meir;
 
-import org.meir.jdbc.template.CarListingJDBCTemplate;
+import org.meir.jdbc.template.ListingJDBCTemplate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -12,9 +12,8 @@ public class CarListingApplication {
         SpringApplication.run(CarListingApplication.class, args);
     }
 
-
     @Bean
-    public CarListingJDBCTemplate carListingRepository(){
-        return new CarListingJDBCTemplate();
+    public ListingJDBCTemplate listingRepository(){
+        return new ListingJDBCTemplate();
     }
 }
